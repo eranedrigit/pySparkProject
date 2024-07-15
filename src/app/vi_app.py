@@ -7,7 +7,7 @@ class App:
         self.spark = SparkSession.builder.appName("ViApp").getOrCreate()
         print("Spark session built!")
 
-    def load_data(self, input_path) -> DataFrame:
+    def load_data(self, input_path: str) -> DataFrame:
         print("Loading data...")
         return self.spark.read.csv(input_path, header=True, inferSchema=True)
 
