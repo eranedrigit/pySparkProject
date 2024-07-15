@@ -1,0 +1,38 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="18">
+            <item index="0" class="java.lang.String" itemvalue="pagaya-piper_common" />
+            <item index="1" class="java.lang.String" itemvalue="pagaya-databank" />
+            <item index="2" class="java.lang.String" itemvalue="pagaya_piper" />
+            <item index="3" class="java.lang.String" itemvalue="dbt" />
+            <item index="4" class="java.lang.String" itemvalue="numpy" />
+            <item index="5" class="java.lang.String" itemvalue="pagaya_synergy" />
+            <item index="6" class="java.lang.String" itemvalue="Jinja2" />
+            <item index="7" class="java.lang.String" itemvalue="pagaya-piper-common" />
+            <item index="8" class="java.lang.String" itemvalue="pagaya-synergy" />
+            <item index="9" class="java.lang.String" itemvalue="pagaya_common" />
+            <item index="10" class="java.lang.String" itemvalue="pagaya-file-validator" />
+            <item index="11" class="java.lang.String" itemvalue="alembic" />
+            <item index="12" class="java.lang.String" itemvalue="apache-airflow-providers-amazon" />
+            <item index="13" class="java.lang.String" itemvalue="recordclass" />
+            <item index="14" class="java.lang.String" itemvalue="pyyaml" />
+            <item index="15" class="java.lang.String" itemvalue="slack_sdk" />
+            <item index="16" class="java.lang.String" itemvalue="logstash_formatter" />
+            <item index="17" class="java.lang.String" itemvalue="toad-infra" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyStubPackagesAdvertiser" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="pyspark-stubs==3.0.0.post3" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
