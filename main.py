@@ -12,11 +12,11 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def write_data_to_s3(df, key, file_name):
+def write_data_to_s3(df, key):
     try:
-        result_path = f"{S3_BUCKET}/output_folder/{key}/{file_name}"
+        result_path = f"{S3_BUCKET}/output_folder/{key}"
         logger.info(f"Loading df for {key} to destination -> {result_path}")
-        df.write.mode("overwrite").option("header", "true").option("inferSchema", "true").csv(result_path)
+        df.write.mode("overwrite").option("header", "true").csv(result_path)
     except Exception as e:
         print(f"An error occurred: {str(e)}")
 
@@ -46,7 +46,7 @@ if __name__ == "__main__":
                                     ORDER BY date""")
         print("Q1 results :")
         result_df_1.show()
-        write_data_to_s3(result_df_1, "q_1_tbl", "q_1_results")
+        write_data_to_s3(result_df_1, "q_1_tbl")
         ####
         result_df_2 = spark.sql("""SELECT ticker, AVG(close * volume) AS avg_traded_value
                                     FROM stocks
@@ -55,7 +55,7 @@ if __name__ == "__main__":
                                     LIMIT 1""")
         print("Q2 results :")
         result_df_2.show()
-        write_data_to_s3(result_df_2, "q_2_tbl", "q_2_results")
+        write_data_to_s3(result_df_2, "q_2_tbl")
         ####
         result_df_3 = spark.sql("""WITH daily_returns AS (
                                     SELECT ticker, 
@@ -69,7 +69,7 @@ if __name__ == "__main__":
                                 LIMIT 1""")
         print("Q3 results :")
         result_df_3.show()
-        write_data_to_s3(result_df_3, "q_3_tbl", "q_3_results")
+        write_data_to_s3(result_df_3, "q_3_tbl")
         ####
         result_df_4 = spark.sql("""WITH lagged_data AS (
                                         SELECT date, ticker, close, 
@@ -84,7 +84,7 @@ if __name__ == "__main__":
                                     LIMIT 3""")
         print("Q4 results :")
         result_df_4.show()
-        write_data_to_s3(result_df_4, "q_4_tbl", "q_4_results")
+        write_data_to_s3(result_df_4, "q_4_tbl")
         ####
         print("Spark session successfully finished")
     except Exception as e:
